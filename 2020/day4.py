@@ -60,5 +60,5 @@ def passports(lines):
     return valid
 
 if __name__ == '__main__':
-    # lines = [x.strip() for x in open("2020/day4input.txt", 'r').readlines()]
-    # print(passports(lines))
+    lines = [x.strip() for x in open("2020/day4input.txt", 'r').readlines()]
+    print(passports(lines))
