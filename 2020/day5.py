@@ -56,5 +56,7 @@ if __name__ == '__main__':
     year, day = os.path.basename(os.getcwd()), re.findall(r'^.*day(\d+).py$', __file__)[0]
     # getInput(year, day) #NOTE: COMMENT ONCE INPUT FETCHED
     lines = [l.strip() for l in open(f'day{day}input.txt').readlines()]
-    print(main(lines))
-    # submitAnswer(main(lines)) #NOTE: UNCOMMENT TO AUTO SUBMIT
+    part1, part2 = main(lines)
+    print(part1, part2)
+    # submitAnswer(year, day, 1, part1) #NOTE: UNCOMMENT TO AUTO SUBMIT
+    # submitAnswer(year, day, 2, part2) #NOTE: UNCOMMENT TO AUTO SUBMIT
