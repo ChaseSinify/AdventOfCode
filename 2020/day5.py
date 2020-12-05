@@ -16,41 +16,6 @@ def main(lines):
     sorty = sorted(binaries)
     part2 = next(i + sorty[0] for i in range(len(sorty)) if sorty[i] != i + sorty[0])
     return part1, part2
-
-    #region when you dont notice it's just binary...
-    # seats = []
-    # highest = 0
-    # for line in lines:
-    #     low, high = 0, 127
-    #     colLow, colHigh = 0, 7
-    #     row, col = 0, 0
-    #     for c in line:
-    #         mid = (high + low) // 2
-    #         colMid = (colHigh + colLow) // 2
-    #         if c == "F":
-    #             high = mid
-    #         elif c == "B":
-    #             low = mid + 1
-    #         elif c == "R":
-    #             colLow = colMid + 1
-    #         elif c == "L":
-    #             colHigh = colMid
-
-    #         if low == high: row = low  
-    #         if colLow == colHigh: col = colLow
-                         
-    #     seatID = row * 8 + col
-    #     if seatID > highest:
-    #         highest = seatID
-    #     seats.append(seatID)
-
-    # ourSeat = None
-    # sorty = sorted(seats)
-    # for i in range(len(sorty) - 1):
-    #     if sorty[i]+1 != sorty[i+1]:
-    #         ourSeat = i + sorty[0] + 1
-    # return highest, ourSeat
-    #endregion
     
 if __name__ == '__main__':
     year, day = os.path.basename(os.getcwd()), re.findall(r'^.*day(\d+).py$', __file__)[0]
