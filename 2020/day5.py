@@ -12,7 +12,7 @@ from autoSubmit import submitAnswer
 def main(lines):
     binaries = [int(line.replace("F", "0").replace("B", "1").replace("R", "1").replace("L", "0"), 2) for line in lines]
     minny, maxxy, realsum = min(binaries), max(binaries), sum(binaries)
-    return maxxy, ((maxxy + minny)*(maxxy - minny + 1)//2) - realsum # expected sum == (max + min)*(max - min + 1)/2
+    return maxxy, ((maxxy + minny)*(maxxy - minny + 1)//2) - realsum # expected sum == (max + min) * (max - min + 1)/2
     
 if __name__ == '__main__':
     year, day = os.path.basename(os.getcwd()), re.findall(r'^.*day(\d+).py$', __file__)[0]
