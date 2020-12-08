@@ -1,3 +1,4 @@
+from enum import Flag
 import itertools as iter
 import collections as col
 import hashlib as hash
@@ -11,23 +12,25 @@ from autoInput import getInput, startInputClock
 from autoSubmit import submitAnswer
 
 def main(lines):
-    # print(lines)
+    print(lines)
     part1, part2 = 0, 0
-
     # PART 1
-    # only 1 line input
-    number = lines[0]
-    for i in range(len(number)):
-        if number[i] == number[(i+1) % len(number)]:
-            part1 += int(number[i])
+    part1 = sum(max([int(x) for x in line.split('\t')]) - min([int(x) for x in line.split('\t')]) for line in lines)
 
-    for i in range(len(number)):
-        if number[i] == number[((i+len(number)//2)) % len(number)]:
-            part2 += int(number[i])
+    # PART 2
+    for line in lines:
+        for x in line.split():
+            for y in line.split():
+                print(x, y)
+                if int(x) > int(y):
+                    if int(x) % int(y) == 0:
+                        part2 += int(x) // int(y)
+                        break 
+                    
     return part1, part2
 
 if __name__ == '__main__':
-    PART_1 = True
+    PART_1 = False
 
     year, day = os.path.basename(os.getcwd()), re.findall(r'^.*day(\d+).py$', __file__)[0]
     if not os.path.isfile(f'{os.getcwd()}/day{day}input.txt'):
@@ -47,4 +50,3 @@ if __name__ == '__main__':
         resp = submitAnswer(year, day, 2, part2)
         print(resp)
         if resp == "CORRECT": print("Problem complete.")  
-            
