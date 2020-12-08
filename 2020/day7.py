@@ -13,7 +13,6 @@ from autoSubmit import submitAnswer
 
 """How many bag colors can eventually contain at least one shiny gold bag?"""
 def main(lines):
-    #testing
     shinyBags = set({}) #stores the bags that can 'eventually hold shiny bags'
     bagsMap = {}
 
